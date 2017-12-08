@@ -1,34 +1,24 @@
+import java.lang.Math;
+
 public class Point {
 
-
-    double x;
-    double y;
-
-
-    public Point(double x, double y)
-    {
-        this.x = x;
-        this.y = y;
-    }
-
-
-    public double getDistance(Point p)
-    {
-        double distance = Math.sqrt ((x - p.x)*(x - p.x) + (y - p.y)*(y - p.y));
-        return distance;
-    }
-
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         Point p1 = new Point(10, 20);
-
         Point p2 = new Point(30, 40);
+        System.out.println("Distance = " + p1.distanceTo(p2));
+    }
+
+    private double x;
+    private double y;
 
 
+    public Point(double xPosition, double yPosition) {
+        x = xPosition;
+        y = yPosition;
+    }
 
-        double distance = p1.getDistance(p2);
 
-        System.out.println("The distance between (" + p1.x + ", " + p1.y + ") and ("
-                + p2.x + ", " + p2.y + ") is " + distance + ".");
+    public double distanceTo(Point other) {
+        return Math.sqrt(Math.pow(x - other.x, 2) + Math.pow(y - other.y, 2));
     }
 }
